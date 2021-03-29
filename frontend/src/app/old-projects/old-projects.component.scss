@@ -1,0 +1,43 @@
+.container1 {
+    max-width: 95%;
+    margin: 2% auto; /* topo | direita | inferior | esquerda */
+    text-align: right;
+    color: #2F2F2F;
+}
+
+.btn-fab {
+    background-color: rgb(12, 65, 84);
+    color: white;
+  }
+
+.container2 {
+    max-width: 80%;
+    margin: auto; /* topo | direita | inferior | esquerda */
+    color: #2F2F2F;
+    text-align: center;
+}
+
+.example-card {
+    width: 90%;
+    display: inline-block;
+    //margin-right: 5%;
+    margin-bottom: 2%;
+  }
+
+.mat-card-title {
+    font-size: 12pt;
+}
+
+.mat-card-content {
+    margin-top:15px;
+    text-align: justify;
+}
+
+.btn-block {
+    max-width: 150px;
+    margin-right: 10px;
+    background-color: rgb(12, 65, 84);
+    color: white;
+    float: right;
+    margin: 0%;
+  }

@@ -1,0 +1,68 @@
+<div class="login-wrapper">
+
+  <mat-card class="box">
+
+    <mat-card-header>
+      <mat-card-title>Cadastro</mat-card-title>
+    </mat-card-header>
+    
+    <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome de usuário" formControlName="username" required>
+
+          <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
+            Insira um <strong>nome de usuário</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="E-mail" formControlName="email" required>
+
+          <mat-error type="email" *ngIf="registerForm.controls['email'].hasError('required')">
+            Digite um <strong>email válido</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+          <mat-error *ngIf="registerForm.controls['password'].hasError('required') || 
+                            registerForm.controls['password'].hasError('minlength')">
+            Senha mínima de <strong>seis dígitos</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-select placeholder="Instituição" formControlName="institution" required>
+                <mat-option *ngFor="let institution of institutions" [value]="institution.name">
+                    {{ institution.name }}
+                </mat-option>
+            </mat-select>   
+
+            <mat-error *ngIf="registerForm.controls['institution'].hasError('required')">
+              <strong>Selecione</strong> um tipo de instituição.
+            </mat-error>  
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nome da Instituição" formControlName="institution_name" required>
+
+            <mat-error *ngIf="registerForm.controls['institution_name'].hasError('required')">
+              Digite o <strong>nome da instituição</strong>.
+            </mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button type="submit" [disabled]="!registerForm.valid" mat-raised-button class="btn-block-reg">
+        <mat-icon>how_to_reg</mat-icon> Cadastrar
+      </button>
+
+    </form>
+    
+  </mat-card>
+</div>

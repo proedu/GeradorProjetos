@@ -1,0 +1,32 @@
+<div class="login-wrapper" >
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Usuário" formControlName="username" required>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+
+          <mat-error *ngIf="user == false">
+            Usuário ou senha incorretos.
+          </mat-error>
+
+        </mat-card-content>
+
+        <button type="submit" [disabled]="!loginForm.valid" mat-raised-button class="btn-block-login">
+          <mat-icon>login</mat-icon> Entrar
+        </button><br/><br/>
+        <span>Ainda não possui cadastro?</span>
+        <button mat-raised-button routerLink="/register" class="btn-block-reg">Cadastrar</button>
+      </form>
+    </mat-card>
+</div>
